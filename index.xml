@@ -13,7 +13,7 @@
       <pubDate>Wed, 19 Jan 2022 19:17:23 +0100</pubDate>
       
       <guid>/post/simplebuildscript/</guid>
-      <description></description>
+      <description>If you are like me you build side projects from time to time. Some of them are application running on a server. This led me to the question what is a lightweight and simple way to deploy those application. Do I need to setup a full CI/CD pipeline? Well after all these are often heavy tools to run production grade software. Maybe a simple script is good enough for my use-case?</description>
     </item>
     
     <item>
@@ -22,7 +22,7 @@
       <pubDate>Wed, 19 Jan 2022 19:06:52 +0100</pubDate>
       
       <guid>/about/</guid>
-      <description>I&amp;rsquo;m a software developer interested in everything what involves software. I enjoy learning about following topics most: Software Design, Programming Language Design, System Design, Lisp (Clojure in particular).
+      <description>I&amp;rsquo;m a software developer interested with everything that goes along with software. I enjoy learning about following topics most: Software Design, Programming Language Design, System Design, Lisp (Clojure in particular).
 Here I learn to write and collect/share things I learned. I&amp;rsquo;m not a native speaker so pardon me for any mistakes I make.</description>
     </item>
     
