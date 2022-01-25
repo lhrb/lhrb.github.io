@@ -6,14 +6,25 @@
     <description>Recent content on lhrb</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 19 Jan 2022 19:17:23 +0100</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 25 Jan 2022 16:28:40 +0100</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Duality between data and code</title>
+      <link>/post/dualityofcodeanddata/</link>
+      <pubDate>Tue, 25 Jan 2022 16:28:40 +0100</pubDate>
+      
+      <guid>/post/dualityofcodeanddata/</guid>
+      <description>The first sentence on the Wikipedia page about &amp;ldquo;Code as data&amp;rdquo;:
+ In computer science, the expressions code as data and data as code refer to the duality between code and data, that allows computers to treat instructions in a programming language as data handled by a running program. [0]
+ I strongly associate the phrase &amp;ldquo;data as code&amp;rdquo; with LISP and I absolutely do love to speak about LISP but this time I will try to explore the other way around: &amp;ldquo;code as data&amp;rdquo;.</description>
+    </item>
+    
     <item>
       <title>Continuous Delivery for personal projects</title>
       <link>/post/simplebuildscript/</link>
       <pubDate>Wed, 19 Jan 2022 19:17:23 +0100</pubDate>
       
       <guid>/post/simplebuildscript/</guid>
-      <description>If you are like me you build side projects from time to time. Some of them are application running on a server. This led me to the question what is a lightweight and simple way to deploy those application. Do I need to setup a full CI/CD pipeline? Well after all these are often heavy tools to run production grade software. Maybe a simple script is good enough for my use-case?</description>
+      <description>If you are like me, you build side projects from time to time. Some of them are application running on a server. This led me to the question what is a lightweight and simple way to deploy those application. Do I need to setup a full CI/CD pipeline? These are often heavy tools to run production grade software. Maybe a simple script is good enough for my use-case? After all, I&amp;rsquo;m most likely to abandon this project after a while.</description>
     </item>
     
     <item>

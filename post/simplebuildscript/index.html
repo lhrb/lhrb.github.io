@@ -23,7 +23,7 @@
 
   
   
-  <meta name="description" content="If you are like me you build side projects from time to time. Some of them are application running on a server. This led me to the question what is a lightweight and simple way to deploy those application. Do I need to setup a full CI/CD pipeline? Well after all these are often heavy tools to run production grade software. Maybe a simple script is good enough for my use-case?" />
+  <meta name="description" content="If you are like me, you build side projects from time to time. Some of them are application running on a server. This led me to the question what is a lightweight and simple way to deploy those application. Do I need to setup a full CI/CD pipeline? These are often heavy tools to run production grade software. Maybe a simple script is good enough for my use-case? After all, I&rsquo;m most likely to abandon this project after a while." />
   <meta name="author" content="Lukas" />
   
 
@@ -56,7 +56,7 @@
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 
   
-  <meta name="generator" content="Hugo 0.91.2" />
+  <meta name="generator" content="Hugo 0.92.0" />
 
   
   
@@ -71,7 +71,7 @@
   
   
   <meta property="og:title" content="Continuous Delivery for personal projects" />
-<meta property="og:description" content="If you are like me you build side projects from time to time. Some of them are application running on a server. This led me to the question what is a lightweight and simple way to deploy those application. Do I need to setup a full CI/CD pipeline? Well after all these are often heavy tools to run production grade software. Maybe a simple script is good enough for my use-case?" />
+<meta property="og:description" content="If you are like me, you build side projects from time to time. Some of them are application running on a server. This led me to the question what is a lightweight and simple way to deploy those application. Do I need to setup a full CI/CD pipeline? These are often heavy tools to run production grade software. Maybe a simple script is good enough for my use-case? After all, I&rsquo;m most likely to abandon this project after a while." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/post/simplebuildscript/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2022-01-19T19:17:23+01:00" />
@@ -80,14 +80,14 @@
 
   
   <meta itemprop="name" content="Continuous Delivery for personal projects">
-<meta itemprop="description" content="If you are like me you build side projects from time to time. Some of them are application running on a server. This led me to the question what is a lightweight and simple way to deploy those application. Do I need to setup a full CI/CD pipeline? Well after all these are often heavy tools to run production grade software. Maybe a simple script is good enough for my use-case?"><meta itemprop="datePublished" content="2022-01-19T19:17:23+01:00" />
+<meta itemprop="description" content="If you are like me, you build side projects from time to time. Some of them are application running on a server. This led me to the question what is a lightweight and simple way to deploy those application. Do I need to setup a full CI/CD pipeline? These are often heavy tools to run production grade software. Maybe a simple script is good enough for my use-case? After all, I&rsquo;m most likely to abandon this project after a while."><meta itemprop="datePublished" content="2022-01-19T19:17:23+01:00" />
 <meta itemprop="dateModified" content="2022-01-19T19:17:23+01:00" />
-<meta itemprop="wordCount" content="378">
+<meta itemprop="wordCount" content="375">
 <meta itemprop="keywords" content="" />
   
   <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Continuous Delivery for personal projects"/>
-<meta name="twitter:description" content="If you are like me you build side projects from time to time. Some of them are application running on a server. This led me to the question what is a lightweight and simple way to deploy those application. Do I need to setup a full CI/CD pipeline? Well after all these are often heavy tools to run production grade software. Maybe a simple script is good enough for my use-case?"/>
+<meta name="twitter:description" content="If you are like me, you build side projects from time to time. Some of them are application running on a server. This led me to the question what is a lightweight and simple way to deploy those application. Do I need to setup a full CI/CD pipeline? These are often heavy tools to run production grade software. Maybe a simple script is good enough for my use-case? After all, I&rsquo;m most likely to abandon this project after a while."/>
 
   
   
@@ -158,11 +158,11 @@
     </p>
     <h1>Continuous Delivery for personal projects</h1>
   </header>
-  <section class="post-content"><p>If you are like me you build side projects from time to time. Some of them are application running on a server.
+  <section class="post-content"><p>If you are like me, you build side projects from time to time. Some of them are application running on a server.
 This led me to the question what is a lightweight and simple way to deploy those application.
-Do I need to setup a full CI/CD pipeline? Well after all these are often heavy tools to run production grade software.
-Maybe a simple script is good enough for my use-case? After all I&rsquo;m most likely to abandon this project after a while.</p>
-<p>What do I want to achieve? Basically I want to <code>git push</code> and see my changes deployed. Knowing about <a href="https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks">Git Hooks</a> the <code>post-receive</code> hook looks like what I been searching for.
+Do I need to setup a full CI/CD pipeline? These are often heavy tools to run production grade software.
+Maybe a simple script is good enough for my use-case? After all, I&rsquo;m most likely to abandon this project after a while.</p>
+<p>What do I want to achieve? Basically I want to <code>git push</code> and see my changes deployed. Knowing about <a href="https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks">Git Hooks</a> the <code>post-receive</code> hook looks like what I&rsquo;ve been searching for.
 What needs the script to do?</p>
 <h4 id="four-simple-steps">Four Simple Steps</h4>
 <ol>
@@ -171,7 +171,7 @@ What needs the script to do?</p>
 <li>Shutdown the running application</li>
 <li>Start the new build</li>
 </ol>
-<p>And this is with what I came up:</p>
+<p>And this is what I came up with:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e">#!/bin/sh
 </span><span style="color:#75715e"></span>cd ../
 echo <span style="color:#e6db74">&#34;================================================================&#34;</span>
@@ -209,7 +209,7 @@ echo <span style="color:#e6db74">&#34;&#34;</span>
 echo <span style="color:#e6db74">&#34;================================================================&#34;</span>
 echo <span style="color:#e6db74">&#34;DEPLOY NEW BUILD&#34;</span>
 java -jar target/myapp.jar &amp;
-</code></pre></div><p>admittedly there is a lot of room for improvements but it&rsquo;s good enough for me currently.</p>
+</code></pre></div><p>admittedly there is a lot of room for improvements, but it&rsquo;s good enough for me currently.</p>
 <h3 id="how-do-we-set-this-up">How do we set this up?</h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">ssh admin@serverip                  <span style="color:#75715e"># login to the server</span>
 mkdir /var/www/myapp                <span style="color:#75715e"># create the app dir</span>
@@ -232,6 +232,12 @@ cp hooks/post-receive .git/hooks/   <span style="color:#75715e"># copy our deplo
 
   
   
+  
+  <nav class="post-nav">
+    
+    <a class="prev" href="/post/dualityofcodeanddata/"><span>←</span><span>Duality between data and code</span></a>
+     
+  </nav>
   
 
   

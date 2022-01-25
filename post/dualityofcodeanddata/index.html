@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html lang="en">
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+  
+  <title>Duality between data and code - lhrb</title>
+
+  
+  
+  <meta name="description" content="The first sentence on the Wikipedia page about &ldquo;Code as data&rdquo;:
+ In computer science, the expressions code as data and data as code refer to the duality between code and data, that allows computers to treat instructions in a programming language as data handled by a running program. [0]
+ I strongly associate the phrase &ldquo;data as code&rdquo; with LISP and I absolutely do love to speak about LISP but this time I will try to explore the other way around: &ldquo;code as data&rdquo;." />
+  <meta name="author" content="" />
+  
+
+  
+  
+  
+  
+  
+  
+  <link rel="preload stylesheet" as="style" href="/app.min.css" />
+
+  
+  <link rel="preload stylesheet" as="style" href="/an-old-hope.min.css" />
+  <script
+    defer
+    src="/highlight.min.js"
+    onload="hljs.initHighlightingOnLoad();"
+  ></script>
+  
+
+  
+  <link rel="preload" as="image" href="/theme.png" />
+
+  
+  <link rel="preload" as="image" href="/github.svg" />
+  
+
+  
+  <link rel="icon" href="/favicon.ico" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+  
+  <meta name="generator" content="Hugo 0.92.0" />
+
+  
+  
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <meta property="og:title" content="Duality between data and code" />
+<meta property="og:description" content="The first sentence on the Wikipedia page about &ldquo;Code as data&rdquo;:
+ In computer science, the expressions code as data and data as code refer to the duality between code and data, that allows computers to treat instructions in a programming language as data handled by a running program. [0]
+ I strongly associate the phrase &ldquo;data as code&rdquo; with LISP and I absolutely do love to speak about LISP but this time I will try to explore the other way around: &ldquo;code as data&rdquo;." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/post/dualityofcodeanddata/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2022-01-25T16:28:40+01:00" />
+<meta property="article:modified_time" content="2022-01-25T16:28:40+01:00" />
+
+
+  
+  <meta itemprop="name" content="Duality between data and code">
+<meta itemprop="description" content="The first sentence on the Wikipedia page about &ldquo;Code as data&rdquo;:
+ In computer science, the expressions code as data and data as code refer to the duality between code and data, that allows computers to treat instructions in a programming language as data handled by a running program. [0]
+ I strongly associate the phrase &ldquo;data as code&rdquo; with LISP and I absolutely do love to speak about LISP but this time I will try to explore the other way around: &ldquo;code as data&rdquo;."><meta itemprop="datePublished" content="2022-01-25T16:28:40+01:00" />
+<meta itemprop="dateModified" content="2022-01-25T16:28:40+01:00" />
+<meta itemprop="wordCount" content="177">
+<meta itemprop="keywords" content="" />
+  
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Duality between data and code"/>
+<meta name="twitter:description" content="The first sentence on the Wikipedia page about &ldquo;Code as data&rdquo;:
+ In computer science, the expressions code as data and data as code refer to the duality between code and data, that allows computers to treat instructions in a programming language as data handled by a running program. [0]
+ I strongly associate the phrase &ldquo;data as code&rdquo; with LISP and I absolutely do love to speak about LISP but this time I will try to explore the other way around: &ldquo;code as data&rdquo;."/>
+
+  
+  
+</head>
+
+
+  <body class="not-ready" data-menu="true">
+    <header class="header">
+  
+  <p class="logo">
+    <a class="site-name" href="/">lhrb</a><a class="btn-dark"></a>
+  </p>
+  
+
+  <script>
+    let bodyClx = document.body.classList;
+    let btnDark = document.querySelector('.btn-dark');
+    let sysDark = window.matchMedia('(prefers-color-scheme: dark)');
+    let darkVal = localStorage.getItem('dark');
+
+    let setDark = (isDark) => {
+      bodyClx[isDark ? 'add' : 'remove']('dark');
+      localStorage.setItem('dark', isDark ? 'yes' : 'no');
+    };
+
+    setDark(darkVal ? darkVal === 'yes' : sysDark.matches);
+    requestAnimationFrame(() => bodyClx.remove('not-ready'));
+
+    btnDark.addEventListener('click', () => setDark(!bodyClx.contains('dark')));
+    sysDark.addEventListener('change', (event) => setDark(event.matches));
+  </script>
+
+  
+  
+  <nav class="menu">
+    
+    <a class="" href="/about/">About</a>
+    
+    <a class="" href="/">Home</a>
+    
+  </nav>
+  
+
+  
+  <nav class="social">
+    
+    <a
+      class="github"
+      style="--url: url(./github.svg)"
+      href="https://github.com/lhrb"
+      target="_blank"
+    ></a>
+    
+  </nav>
+  
+</header>
+
+
+    <main class="main">
+
+<article class="post-single">
+  <header class="post-title">
+    <p>
+      <time>Jan 25, 2022</time>
+      
+    </p>
+    <h1>Duality between data and code</h1>
+  </header>
+  <section class="post-content"><p>The first sentence on the Wikipedia page about &ldquo;Code as data&rdquo;:</p>
+<blockquote>
+<p>In computer science, the expressions code as data and data as code refer to the duality between code and data, that allows computers to treat instructions in a programming language as data handled by a running program. [0]</p>
+</blockquote>
+<p>I strongly associate the phrase &ldquo;data as code&rdquo; with LISP and I absolutely do love to speak about LISP
+but this time I will try to explore the other way around: &ldquo;code as data&rdquo;.</p>
+<p>In functional programming we emphasize programming with pure functions. A pure function, given the same input,
+will always produce the same output without altering any state. Given that we can put the input <code>x</code> and the
+computed value <code>y</code> of a pure function <code>fn</code> into a map <code>m = {x y}</code>. Next time someone calls <code>fn(x)</code> we just
+go to our lookup. When we are able to do this for all possible inputs we are than able to substitute the calculation
+with a lookup in <code>m</code>. Would that be data as code?</p>
+<p><a href="https://en.wikipedia.org/wiki/Code_as_data">[0] https://en.wikipedia.org/wiki/Code_as_data</a></p>
+</section>
+
+  
+  
+
+  
+  
+  
+  <nav class="post-nav">
+     
+    <a class="next" href="/post/simplebuildscript/"><span>Continuous Delivery for personal projects</span><span>→</span></a>
+    
+  </nav>
+  
+
+  
+  
+</article>
+
+</main>
+
+    <footer class="footer">
+  <p>&copy; 2022 <a href="/">lhrb</a></p>
+  <p>Powered by <a href="https://gohugo.io/" rel="noopener" target="_blank">Hugo️️</a>️</p>
+  <p>
+    <a href="https://github.com/nanxiaobei/hugo-paper" rel="noopener" target="_blank">Paper 5.1</a>
+  </p>
+</footer>
+
+  </body>
+</html>
