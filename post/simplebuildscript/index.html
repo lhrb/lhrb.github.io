@@ -56,7 +56,7 @@
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 
   
-  <meta name="generator" content="Hugo 0.92.0" />
+  <meta name="generator" content="Hugo 0.93.1" />
 
   
   
@@ -172,59 +172,59 @@ What needs the script to do?</p>
 <li>Start the new build</li>
 </ol>
 <p>And this is what I came up with:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e">#!/bin/sh
-</span><span style="color:#75715e"></span>cd ../
-echo <span style="color:#e6db74">&#34;================================================================&#34;</span>
-echo <span style="color:#e6db74">&#34;MERGE CHANGES&#34;</span>
-GIT<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;git --git-dir=&#39;</span>$PWD<span style="color:#e6db74">&#39;/.git --work-tree &#39;</span>$PWD<span style="color:#e6db74">&#39;&#39;</span>
-$GIT merge main
-echo <span style="color:#e6db74">&#34;================================================================&#34;</span>
-echo <span style="color:#e6db74">&#34;BUILD INITIALIZED&#34;</span>
-echo <span style="color:#e6db74">&#34;START BUILD PROCESS&#34;</span>
-echo <span style="color:#e6db74">&#34;&#34;</span>
-clj -T:build uber
-
-echo <span style="color:#e6db74">&#34;================================================================&#34;</span>
-echo <span style="color:#e6db74">&#34;SEARCH FOR RUNNING APPLICATION...&#34;</span>
-pid<span style="color:#f92672">=</span><span style="color:#e6db74">`</span>ps aux | grep myapp.jar | sed <span style="color:#e6db74">&#39;/grep/d&#39;</span> | awk <span style="color:#e6db74">&#39;{print $2}&#39;</span><span style="color:#e6db74">`</span>
-<span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> -n $pid <span style="color:#f92672">]</span>
-<span style="color:#66d9ef">then</span>
-    echo <span style="color:#e6db74">&#34;RUNNING APPLICATION FOUND&#34;</span>
-    echo <span style="color:#e6db74">&#34;INITALIZE SHUTDOWN&#34;</span>
-    kill $pid
-    echo <span style="color:#e6db74">&#34;WAIT FOR TERMINATION&#34;</span>
-    sleep <span style="color:#ae81ff">3</span>
-    pid2<span style="color:#f92672">=</span><span style="color:#e6db74">`</span>ps aux | grep myapp.jar | sed <span style="color:#e6db74">&#39;/grep/d&#39;</span> | awk <span style="color:#e6db74">&#39;{print $2}&#39;</span><span style="color:#e6db74">`</span>
-    <span style="color:#66d9ef">if</span>  <span style="color:#f92672">[</span> -n $pid2 <span style="color:#f92672">]</span>
-    <span style="color:#66d9ef">then</span>
-        echo <span style="color:#e6db74">&#34;WAITED 3SEC FOR GRACEFUL SHUTDOWN&#34;</span>
-        echo <span style="color:#e6db74">&#34;KILLING PROCESS NOW&#34;</span>
-        kpid<span style="color:#f92672">=</span><span style="color:#e6db74">`</span>kill -9 $pid2<span style="color:#e6db74">`</span>
-        wait $kpid
-    <span style="color:#66d9ef">fi</span>
-    echo <span style="color:#e6db74">&#34;PROCESS IS SHUTDOWN&#34;</span>
-<span style="color:#66d9ef">fi</span>
-
-echo <span style="color:#e6db74">&#34;&#34;</span>
-echo <span style="color:#e6db74">&#34;================================================================&#34;</span>
-echo <span style="color:#e6db74">&#34;DEPLOY NEW BUILD&#34;</span>
-java -jar target/myapp.jar &amp;
-</code></pre></div><p>admittedly there is a lot of room for improvements, but it&rsquo;s good enough for me currently.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#75715e">#!/bin/sh
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>cd ../
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;================================================================&#34;</span>
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;MERGE CHANGES&#34;</span>
+</span></span><span style="display:flex;"><span>GIT<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;git --git-dir=&#39;</span>$PWD<span style="color:#e6db74">&#39;/.git --work-tree &#39;</span>$PWD<span style="color:#e6db74">&#39;&#39;</span>
+</span></span><span style="display:flex;"><span>$GIT merge main
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;================================================================&#34;</span>
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;BUILD INITIALIZED&#34;</span>
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;START BUILD PROCESS&#34;</span>
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>clj -T:build uber
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;================================================================&#34;</span>
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;SEARCH FOR RUNNING APPLICATION...&#34;</span>
+</span></span><span style="display:flex;"><span>pid<span style="color:#f92672">=</span><span style="color:#e6db74">`</span>ps aux | grep myapp.jar | sed <span style="color:#e6db74">&#39;/grep/d&#39;</span> | awk <span style="color:#e6db74">&#39;{print $2}&#39;</span><span style="color:#e6db74">`</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> -n $pid <span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>    echo <span style="color:#e6db74">&#34;RUNNING APPLICATION FOUND&#34;</span>
+</span></span><span style="display:flex;"><span>    echo <span style="color:#e6db74">&#34;INITALIZE SHUTDOWN&#34;</span>
+</span></span><span style="display:flex;"><span>    kill $pid
+</span></span><span style="display:flex;"><span>    echo <span style="color:#e6db74">&#34;WAIT FOR TERMINATION&#34;</span>
+</span></span><span style="display:flex;"><span>    sleep <span style="color:#ae81ff">3</span>
+</span></span><span style="display:flex;"><span>    pid2<span style="color:#f92672">=</span><span style="color:#e6db74">`</span>ps aux | grep myapp.jar | sed <span style="color:#e6db74">&#39;/grep/d&#39;</span> | awk <span style="color:#e6db74">&#39;{print $2}&#39;</span><span style="color:#e6db74">`</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span>  <span style="color:#f92672">[</span> -n $pid2 <span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>        echo <span style="color:#e6db74">&#34;WAITED 3SEC FOR GRACEFUL SHUTDOWN&#34;</span>
+</span></span><span style="display:flex;"><span>        echo <span style="color:#e6db74">&#34;KILLING PROCESS NOW&#34;</span>
+</span></span><span style="display:flex;"><span>        kpid<span style="color:#f92672">=</span><span style="color:#e6db74">`</span>kill -9 $pid2<span style="color:#e6db74">`</span>
+</span></span><span style="display:flex;"><span>        wait $kpid
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">fi</span>
+</span></span><span style="display:flex;"><span>    echo <span style="color:#e6db74">&#34;PROCESS IS SHUTDOWN&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">fi</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;================================================================&#34;</span>
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;DEPLOY NEW BUILD&#34;</span>
+</span></span><span style="display:flex;"><span>java -jar target/myapp.jar &amp;
+</span></span></code></pre></div><p>admittedly there is a lot of room for improvements, but it&rsquo;s good enough for me currently.</p>
 <h3 id="how-do-we-set-this-up">How do we set this up?</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">ssh admin@serverip                  <span style="color:#75715e"># login to the server</span>
-mkdir /var/www/myapp                <span style="color:#75715e"># create the app dir</span>
-cd /var/www/myapp
-git init
-git checkout release                <span style="color:#75715e"># we can&#39;t push to a branch we have currently checked out</span>
-</code></pre></div><p>on our local machine</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e"># assuming we are inside our local project dir</span>
-
-git remote add live ssh://admin@serverip:/var/www/myapp
-git push live main
-</code></pre></div><p>on the server</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">git merge main
-cp hooks/post-receive .git/hooks/   <span style="color:#75715e"># copy our deploy file to the hook dir</span>
-</code></pre></div><p>next time we push with <code>git push live main</code> our application gets automatically deployed.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>ssh admin@serverip                  <span style="color:#75715e"># login to the server</span>
+</span></span><span style="display:flex;"><span>mkdir /var/www/myapp                <span style="color:#75715e"># create the app dir</span>
+</span></span><span style="display:flex;"><span>cd /var/www/myapp
+</span></span><span style="display:flex;"><span>git init
+</span></span><span style="display:flex;"><span>git checkout release                <span style="color:#75715e"># we can&#39;t push to a branch we have currently checked out</span>
+</span></span></code></pre></div><p>on our local machine</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#75715e"># assuming we are inside our local project dir</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>git remote add live ssh://admin@serverip:/var/www/myapp
+</span></span><span style="display:flex;"><span>git push live main
+</span></span></code></pre></div><p>on the server</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>git merge main
+</span></span><span style="display:flex;"><span>cp hooks/post-receive .git/hooks/   <span style="color:#75715e"># copy our deploy file to the hook dir</span>
+</span></span></code></pre></div><p>next time we push with <code>git push live main</code> our application gets automatically deployed.</p>
 </section>
 
   

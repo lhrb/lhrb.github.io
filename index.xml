@@ -6,7 +6,36 @@
     <description>Recent content on lhrb</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 25 Jan 2022 16:28:40 +0100</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 05 Mar 2022 23:18:39 +0100</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Complex System</title>
+      <link>/post/complex/</link>
+      <pubDate>Sat, 05 Mar 2022 23:18:39 +0100</pubDate>
+      
+      <guid>/post/complex/</guid>
+      <description>What is a complex system? Just some thoughts:
+ A single person can not understand a complex system. The same action may lead to different results.  </description>
+    </item>
+    
+    <item>
+      <title>Pure functions? Effects?</title>
+      <link>/post/purefunctions/</link>
+      <pubDate>Tue, 01 Mar 2022 13:56:06 +0100</pubDate>
+      
+      <guid>/post/purefunctions/</guid>
+      <description>You already sold on the idea using and composing pure functions for &amp;ldquo;calculations&amp;rdquo; and pushing effects to the edge of your program. While you put a lot of effort in to internalize these ideas, some of your may never been co-workers exposed to these ideas. Leaving you with the task explaining it to them. You could either start talking about all these undeniable benefits or you could help your co-worker to build a mental model.</description>
+    </item>
+    
+    <item>
+      <title>Ignoramus</title>
+      <link>/post/ignoramus/</link>
+      <pubDate>Fri, 25 Feb 2022 20:20:19 +0100</pubDate>
+      
+      <guid>/post/ignoramus/</guid>
+      <description>In the book &amp;ldquo;Sapiens A Brief History of Humankind&amp;rdquo; Yuval Noah Harari describes that the scientific revolution happened because human were finally able to admit that &amp;lsquo;we do not know&amp;rsquo;.
+While this probably holds true in broader terms. We still have to try hard not falling into the trap not questioning our self, thinking &amp;ldquo;I know&amp;rdquo;. Especially when we worked on something for a while and we are quit proud of it.</description>
+    </item>
+    
     <item>
       <title>Duality between data and code</title>
       <link>/post/dualityofcodeanddata/</link>
